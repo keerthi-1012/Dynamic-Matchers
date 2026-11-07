@@ -1,0 +1,20 @@
+description: Sign-in endpoint returns a dynamic token
+request:
+  method: POST
+  url: /ms1/signin
+  headers:
+    Content-Type: application/json
+  body:
+    username: student
+    password: password123
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body:
+    token: "sample-token-value"
+  matchers:
+    body:
+      - path: $.token
+        type: by_regex
+        value: ".+"

@@ -1,0 +1,26 @@
+{
+  "id" : "5d104401-80cc-4b5d-ace9-85ba21ee0e71",
+  "request" : {
+    "urlPath" : "/ms1/signin",
+    "method" : "POST",
+    "headers" : {
+      "Content-Type" : {
+        "equalTo" : "application/json"
+      }
+    },
+    "bodyPatterns" : [ {
+      "matchesJsonPath" : "$[?(@.['username'] == 'student')]"
+    }, {
+      "matchesJsonPath" : "$[?(@.['password'] == 'password123')]"
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"token\":\"sample-token-value\"}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template", "spring-cloud-contract" ]
+  },
+  "uuid" : "5d104401-80cc-4b5d-ace9-85ba21ee0e71"
+}
